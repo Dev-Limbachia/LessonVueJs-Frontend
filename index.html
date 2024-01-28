@@ -87,7 +87,7 @@
       <div class="subject-container" v-if="showProduct">
         <div class="subject-box" v-for="(subject, subjectIndex) in currentSubjects" :key="subject.id">
           <figure>
-            <img :src="'http://localhost:3000' + subject.image" alt="Subject Image" />
+            <img :src="'https://webstore-rest-api-f979.onrender.com' + subject.image" alt="Subject Image" />
           </figure>
           <h2 v-text="subject.title"></h2>
           <p>Location: {{subject.location}}</p>
@@ -107,7 +107,7 @@
         <div class="Cart-page">
           <div class="cart-box" v-for="(item, key) in cart">
             <figure>
-              <img :src="'http://localhost:3000' + item.image" alt="Subject Image" />
+              <img :src="'https://webstore-rest-api-f979.onrender.com' + item.image" alt="Subject Image" />
             </figure>
             <h2 v-text="item.title"></h2>
             <p>Price: £{{item.price}}</p>
