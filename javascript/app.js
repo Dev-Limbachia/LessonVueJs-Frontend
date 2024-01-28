@@ -118,7 +118,7 @@ new Vue({
       this.sortOrder = null;
     
       // Fetch the original data from MongoDB
-      fetch('http://localhost:3000/lessons')
+      fetch('https://webstore-rest-api-f979.onrender.com/lessons')
         .then(response => response.json())
         .then(data => {
           console.log('Data from MongoDB:', data);
