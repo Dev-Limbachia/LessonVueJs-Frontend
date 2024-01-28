@@ -251,9 +251,13 @@ try {
         .then(response => response.json())
         .then(data => {
           console.log('Search results:', data);
-          this.searchResults = data; // Update the search results
+          this.subjects = data; // Update the search results
         })
-        .catch(error => console.error('Error performing search:', error));
+        .catch(error => console.error('Error fetching data:', error))
+        .finally(() => {
+          // Once the data is loaded, you can set showProduct to true
+          this.showProduct = true;
+        });
     },
   },
 
