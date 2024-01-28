@@ -27,7 +27,7 @@ new Vue({
   methods: {
     fetchSubjects() {
       // Fetch initial subjects data when the component is created
-      fetch('http://localhost:3000/lessons')
+      fetch('https://webstore-rest-api-f979.onrender.com/lessons')
         .then(response => response.json())
         .then(data => {
           console.log('Data from MongoDB:', data);
@@ -181,7 +181,7 @@ new Vue({
         }
     
         // Send a POST request to the backend to save the order
-        fetch('http://localhost:3000/orders', {
+        fetch('https://webstore-rest-api-f979.onrender.com/orders', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ new Vue({
 
     performSearch() {
       // Perform search on the server
-      fetch(`http://localhost:3000/search?q=${this.searchKeyword}`)
+      fetch(`https://webstore-rest-api-f979.onrender.com/search?q=${this.searchKeyword}`)
         .then(response => response.json())
         .then(data => {
           console.log('Search results:', data);
