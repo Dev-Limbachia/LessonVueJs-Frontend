@@ -197,6 +197,9 @@ new Vue({
             this.cart = [];
             this.isCheckoutEnabled = false;
             this.showProduct = true;
+            this.searchKeyword = "";
+            // Refetch all subjects to reset the list
+            this.fetchSubjects(); // Call fetchSubjects to reload the full list of subjects
 
             // Call the function to update lesson quantities
             this.updateLessonQuantities(this.cart);
