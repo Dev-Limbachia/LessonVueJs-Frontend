@@ -85,7 +85,7 @@
 
       <!-- Products Section -->
       <div class="subject-container" v-if="showProduct">
-        <div class="subject-box" v-for="(subject, subjectIndex) in currentSubjects" :key="subject.id">
+        <div class="subject-box" v-for="(subject, subjectIndex) in subjects" :key="subject.id">
           <figure>
             <img :src="'https://webstore-rest-api-f979.onrender.com' + subject.image" alt="Subject Image" />
           </figure>
