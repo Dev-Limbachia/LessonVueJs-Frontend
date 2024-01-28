@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Scripts -->
+<link rel="stylesheet" href="./css/style.css" />
+<script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script> <!-- Vue JS version 2.7.8 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>After School Club</title>
+  <link rel="icon" type="image/x-icon" href="./favicon/web_icon.ico" />
+</head>
+
+<body>
+
+  <!-- Connects Vue JS Framework-->
+  <div id="app">
+
+    <!-- Header Section -->
+    <header>
+      <div class="container1">
+        <div class="sub-container1">
+          <h1 v-text="sitename"></h1>
+          <button class="cart" v-on:click="showCart">
+            {{ cartItemCount }}
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Cart
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+      <!-- Search and Sort section -->
+      <div class="search-sort-container" v-if="showProduct">
+
+        <!-- Search section -->
+        <div class="search">
+          <input class="search-input" type="text" id="searchInput" v-model="searchKeyword" @input="performSearch"/>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+
+        <!-- Sort section -->
+        <div class="sort">
+          <p>Sort by:&nbsp;&nbsp;</p>
+
+          <!-- Sort by category section -->
+          <div class="column category">
+            <label>
+              <input type="radio" v-model="sortCategory" id="titlesort" value="Title" @change="sortSubject" />
+              Title
+            </label>
+            <label>
+              <input type="radio" v-model="sortCategory" id="locationsort" value="Location" @change="sortSubject" />
+              Location
+            </label>
+            <label>
+              <input type="radio" v-model="sortCategory" id="availabilitysort" value="Availability" @change="sortSubject" />
+              Availability
+            </label>
+            <label>
+              <input type="radio" v-model="sortCategory" id="pricesort" value="Price" @change="sortSubject" />
+              Price
+            </label>
+          </div>
+
+          <!-- Sort by order section -->
+          <div class="column order">
+            <label>
+              <input type="radio" v-model="sortOrder" id="ascending_order" value="ascending" @change="sortSubject" />
+              Ascending
+            </label>
+            <label>
+              <input type="radio" v-model="sortOrder" id="descending_order" value="descending" @change="sortSubject" />
+              Descending
+            </label>
+            <button class="button" @click="resetShowProduct">Relevance</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Section -->
+      <div class="subject-container" v-if="showProduct">
+        <div class="subject-box" v-for="(subject, subjectIndex) in currentSubjects" :key="subject.id">
+          <figure>
+            <img :src="'http://localhost:3000' + subject.image" alt="Subject Image" />
+          </figure>
+          <h2 v-text="subject.title"></h2>
+          <p>Location: {{subject.location}}</p>
+          <p>Price: £{{subject.price}}</p>
+          <p>Availability: {{subject.availableInventory}}</p>
+
+          <button class="button" v-on:click="addToCart(subject, subjectIndex)" v-if="canAddToCart(subject)">
+            Add to cart
+          </button>
+          <button class="disabled" v-else>Add to cart</button>
+        </div>
+      </div>
+
+      <!-- Cart page section -->
+      <div class="Cart-container" v-else>
+        <h3>Welcome to the checkout page</h3>
+        <div class="Cart-page">
+          <div class="cart-box" v-for="(item, key) in cart">
+            <figure>
+              <img :src="'http://localhost:3000' + item.image" alt="Subject Image" />
+            </figure>
+            <h2 v-text="item.title"></h2>
+            <p>Price: £{{item.price}}</p>
+            <p>Quantity: {{item.quantity}}</p>
+            <button class="button" v-on:click="removeCartItem(item)">
+              Remove
+            </button>
+          </div>
+        </div>
+        <hr>
+
+        <!-- Checkout Section -->
+        <div class="checkout-container">
+          <div class="checkout-box">
+            <label for="name">Name:</label>
+            <input type="text" id="name" v-model="name" @input="checkInputs">
+          </div>
+          <div class="checkout-box">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" v-model="phone" @input="checkInputs">
+          </div>
+          <div class="checkout-box">
+            <button id="checkout" :disabled="!isCheckoutEnabled" @click="checkout">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Script that connects javascript -->
+  <script src="./javascript/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,336 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General styles */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Header styles */
+header {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-family: "Verdana", sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+/* Subject container styles */
+.subject-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  position: relative;
+  z-index: 0;
+}
+
+.subject-box {
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.2s;
+}
+
+.subject-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Ensure consistent image size and aspect ratio */
+.subject-box img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
+.subject-box h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.subject-box p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Disabled state */
+.disabled {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Cart button */
+.cart {
+  position: fixed;
+  right: 20px;
+  bottom: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Ensure it's above other elements */
+  transition: transform 0.2s;
+}
+
+.cart i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.cart:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px);
+}
+
+/* Cart page styles */
+.Cart-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.cart-box {
+  width: calc(43.33% - 20px);
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.2s;
+}
+
+.cart-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Ensure consistent image size and aspect ratio */
+.cart-box img {
+  height: 90px;
+  width: 90px;
+  object-fit: cover;
+}
+
+.cart-box h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.cart-box p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.cart-box button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-box button:active {
+  transform: scale(0.98);
+}
+
+.cart-box button:hover {
+  background-color: #d50606;
+}
+
+/* Style for the search-sort-container */
+.search-sort-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* Style for the search input field */
+.search-input {
+  background-color: #f5f5f5;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  width: 300px;
+  font-size: 18px;
+  color: #333;
+  margin-left: 15px;
+}
+
+/* Hover effect for the search input field */
+.search-input:hover {
+  border-color: #007bff;
+}
+
+/* Style for the search icon */
+.search i {
+  color: #007bff;
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+/* Sort */
+.sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 15px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.category {
+  margin-right: 20px;
+}
+
+.order {
+  margin-left: 20px;
+}
+
+/* Cart button */
+.Cart-container h3 {
+  margin-top: 2%;
+  margin-left: 35%;
+  font-size: 25px;
+}
+
+/* Style for the checkout section */
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin: auto;
+}
+
+/* Style for the checkout box */
+.checkout-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Style for the label in the checkout box */
+.checkout-box label {
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/* Style for the input in the checkout box */
+.checkout-box input {
+  flex: 1;
+  background-color: #f5f5f5;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  width: 300px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Style for the button in the checkout box */
+.checkout-box button {
+  width: 150px;
+  height: 40px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 18px;
+  margin-left: 100px;
+}
+
+.checkout-box button:hover {
+  background-color: #0056b3;
+}
+
+hr {
+  height: 1px;
+  border-width: 0;
+  background-color: #007bff;
+}
+
+.checkout-box {
+  margin: 10px;
+}
+
+#checkout:enabled {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+#checkout:disabled {
+  background-color: #ccc;
+  color: #999;
+  cursor: not-allowed;
+}
