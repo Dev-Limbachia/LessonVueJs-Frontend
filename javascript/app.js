@@ -218,35 +218,34 @@ new Vue({
         },
 
         async updateLessonQuantities(cart) {
-    // Construct an array of lessons to update (lessonId and quantity to decrement)
-    const lessonsToUpdate = cart.map(item => ({
-        id: item._id, // Use id instead of _id
-        numberOfLessons: item.quantity, // Use item.quantity to get the number of lessons
-    }));
+            // Construct an array of lessons to update (lessonId and quantity to decrement)
+            const lessonsToUpdate = cart.map(item => ({
+                id: item._id, // Use id instead of _id
+                numberOfLessons: item.quantity, // Use item.quantity to get the number of lessons
+            }));
 
-    // Send a PUT request to update lesson quantities
-    try {
-        const response = await fetch('https://webstore-rest-api-f979.onrender.com/updateLessons', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ lessonsToUpdate }), // Send the lessonsToUpdate array
-        });
+            // Send a PUT request to update lesson quantities
+            try {
+                const response = await fetch('https://webstore-rest-api-f979.onrender.com/updateLessons', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ lessonsToUpdate }), // Send the lessonsToUpdate array
+                });
 
-        if (response.ok) {
-            // Handle the success response from the server
-            const data = await response.json();
-            console.log('Lesson quantities updated successfully:', data);
-        } else {
-            // Handle error response from the server
-            console.error('Error updating lesson quantities:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error updating lesson quantities:', error);
-    }
-},
-
+                if (response.ok) {
+                    // Handle the success response from the server
+                    const data = await response.json();
+                    console.log('Lesson quantities updated successfully:', data);
+                } else {
+                    // Handle error response from the server
+                    console.error('Error updating lesson quantities:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error updating lesson quantities:', error);
+            }
+        },
 
         performSearch() {
             // Perform search on the server
