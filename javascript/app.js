@@ -219,12 +219,6 @@ new Vue({
 
         // Function to update lesson quantities
         async updateLessonQuantities(cart) {
-            // Construct an array of lessons to update (lessonId and quantity to decrement)
-            const lessonsToUpdate = cart.map(item => ({
-                id: item.id, // Use id instead of _id
-                numberOfLessons: item.quantity, // Use item.quantity to get the number of lessons
-            }));
-
             // Send a PUT request to update lesson quantities
             try {
                 const response = await fetch('https://webstore-rest-api-f979.onrender.com/updateLessons', {
