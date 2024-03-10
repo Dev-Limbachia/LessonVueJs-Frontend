@@ -167,6 +167,8 @@ new Vue({
                 // Create an array to store lesson IDs from the cart
                 const lessonIDs = this.cart.map(item => item.id);
 
+                console.log("Cart: ", this.cart);
+
                 // Prepare the order data to send in the POST request
                 const orderData = {
                     name: this.name,
