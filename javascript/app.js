@@ -171,7 +171,7 @@ new Vue({
         };
     
         try {
-          const orderResponse = await fetch('http://localhost:3000/orders', {
+          const orderResponse = await fetch('https://webstore-rest-api-f979.onrender.com/orders', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ new Vue({
     
     async updateStock() {
       try {
-        const response = await fetch('http://localhost:3000/updateLessons', {
+        const response = await fetch('https://webstore-rest-api-f979.onrender.com/updateLessons', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
