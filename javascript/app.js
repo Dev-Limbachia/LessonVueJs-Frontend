@@ -220,7 +220,7 @@ new Vue({
         async updateLessonQuantities(cart) {
     // Construct an array of lessons to update (lessonId and quantity to decrement)
     const lessonsToUpdate = cart.map(item => ({
-        id: item.id, // Use id instead of _id
+        id: item._id, // Use id instead of _id
         numberOfLessons: item.quantity, // Use item.quantity to get the number of lessons
     }));
 
